@@ -33,48 +33,43 @@ class _ExpiryDateCheckerState extends State<ExpiryDateCheckerPage> {
       _isCameraInitialized = true;
     });
 
-    // Kamera başlatıldığında sürekli metin okumasını başlat
     _startTextRecognition();
   }
 
   void _startTextRecognition() async {
-    // Kameradan sürekli görüntü alarak metinleri algılamak için MobileScanner kullanın
-    final scanner = MobileScanner();
-    await scanner.scanWindow!;
+    const scanner = MobileScanner();
+    scanner.scanWindow!;
 
-    // MobileScanner ile sürekli metin algılama işlemini başlat
-    scanner.onDetect??(
-      onTextRecognized: (text) {
-        // Algılanan metinleri kullanarak geri bildirim oluşturun
-        setState(() {
-          _detectedText = text;
-        });
-      },
-    );
+    scanner.onDetect ??
+        (
+          onTextRecognized: (text) {
+            setState(() {
+              _detectedText = text;
+            });
+          },
+        );
   }
-
-
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Expiry Date Checker'),
+        title: const Text('SKT OKUYUCU'),
       ),
       body: _isCameraInitialized
           ? Column(
-        children: [
-          CameraPreview(_controller),
-          Text(_detectedText), // Algılanan metni göster
-        ],
-      )
+              children: [
+                CameraPreview(_controller),
+                Text(_detectedText),
+              ],
+            )
           : const Center(child: CircularProgressIndicator()),
     );
   }
 
   @override
   void dispose() {
-    _controller.dispose(); // Kamera kontrolcüsünü kapatın
+    _controller.dispose();
     super.dispose();
   }
 }

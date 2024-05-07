@@ -9,7 +9,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: const Text('Marketçi')),
+        title: const Center(child: Text('SKT OKUYUCU')),
       ),
       body: Column(
         children: [
@@ -23,13 +23,14 @@ class HomePage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => ExpiryDateCheckerPage()),
+                            builder: (context) =>
+                                const ExpiryDateCheckerPage()),
                       );
                     },
-                    child: Text('Son Kullanım Tarihi Kontrol'),
                     style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8))),
+                    child: const Text('Son Kullanım Tarihi Kontrol'),
                   ),
                 ),
               ],
