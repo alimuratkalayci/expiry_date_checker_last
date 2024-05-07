@@ -18,19 +18,23 @@ class HomePage extends StatelessWidget {
             child: Row(
               children: [
                 Expanded(
-                  child: ElevatedButton( onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => ExpiryDateChecker()),
-                    );
-
-                  },
-                      child: Text('Son Kullanım Tarihi Kontrol')),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ExpiryDateChecker()),
+                      );
+                    },
+                    child: Text('Son Kullanım Tarihi Kontrol'),
+                    style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8))),
+                  ),
                 ),
               ],
             ),
           ),
-
         ],
       ),
     );
