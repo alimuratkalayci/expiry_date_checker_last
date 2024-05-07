@@ -23,7 +23,7 @@ class HomePage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => ExpiryDateChecker()),
+                            builder: (context) => ExpiryDateCheckerPage()),
                       );
                     },
                     child: Text('Son Kullanım Tarihi Kontrol'),
